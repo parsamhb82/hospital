@@ -3,4 +3,4 @@ from .models import Patient
 
 @register(Patient)
 class PatientAdmin(ModelAdmin):
-    list_display = ['fullname', 'age', 'gender']
+    pass
