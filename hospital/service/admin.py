@@ -1,3 +1,6 @@
-from django.contrib import admin
+from django.contrib.admin import register, ModelAdmin
+from .models import Service
 
-# Register your models here.
+@register(Service)
+class ServiceAdmin(ModelAdmin):
+    list_display = ['name', 'description', 'price']
