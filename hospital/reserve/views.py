@@ -11,21 +11,17 @@ class ReserveView(ListCreateAPIView):
     serializer_class = ReserveSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        return Reserve.objects.filter(patinet=self.request.user)
     
 class ReserveDetail(RetrieveUpdateDestroyAPIView):
     queryset = Reserve.objects.all()
     serializer_class = ReserveSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        return Reserve.objects.filter(patinet=self.request.user)
     
 class ReserveListView(ListAPIView):
     queryset = Reserve.objects.all()
     serializer_class = ReserveListSerializer
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['date', 'service','time']
+    filterset_fields = ['date','time']
 
