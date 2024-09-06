@@ -9,5 +9,11 @@ class Reserve(models.Model):
     time = models.TimeField()
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
 
+    def patinet_name(self) -> str:
+        return self.patinet.fullname
+    
+    def service_price(self):
+        return self.service.price
+
     def __str__(self) -> str:
         return self.patinet
